@@ -1,0 +1,694 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Flutter 개발자 케빈 포트폴리오</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+		background-color: #E8F5FF;
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="22dd222a-04d6-8036-af2e-fc414d22d6d3" class="page sans"><header><h1 class="page-title">Flutter 개발자 케빈 포트폴리오</h1><p class="page-description"></p></header><div class="page-body"><p id="22dd222a-04d6-81aa-8aeb-dac45721ad41" class="">
+</p><p id="22dd222a-04d6-81b6-8d02-f5e1e66a8549" class="">
+</p><p id="22dd222a-04d6-810b-aeb2-c59fb38d45bf" class="">
+</p><div id="22dd222a-04d6-81d7-bc63-fd2bfb1fde54" class="column-list"><div id="22dd222a-04d6-818f-a5f4-c56c97d41650" style="width:65.11309562609998%" class="column"><blockquote id="22dd222a-04d6-8112-9d60-d23ecf827153" class=""><em><strong>케빈 / Mobile Developer</strong></em><strong><br/><br/></strong><br/>Flutter 환경에서 앱 개발자로 새롭게 시작합니다. 소통에 중심을 두겠습니다. 앞으로 잘 부탁드립니다! <br/></blockquote><p id="22dd222a-04d6-815f-836e-fc41fc6104f9" class="">
+</p><hr id="22dd222a-04d6-8125-af9e-fee3cbdf814a"/><p id="22dd222a-04d6-81d7-99ed-e8a60bbca3fa" class=""><em><strong>Contact Info (케빈의 스튜디오)</strong></em><br/><br/><br/><em><strong>Tel : 010-7904-2372<br/>E-mail : kevin.j.biz.09876@gmail.com<br/></strong></em></p></div><div id="22dd222a-04d6-8107-88da-c81fdbd971ed" style="width:34.88690437390001%" class="column"><figure id="22dd222a-04d6-81be-bfd7-f7648dd2d93a" class="image" style="text-align:left"><a href="profile.jpg"/></a></figure></div></div><hr id="22dd222a-04d6-816a-a4e2-e7a154969a5a"/><p id="22dd222a-04d6-8128-9d16-dcbd36db14dc" class="">
+</p><p id="22dd222a-04d6-8168-83af-c52e20295627" class="">
+</p><h2 id="22dd222a-04d6-8147-bd8a-d32ce1864991" class="block-color-blue_background"><em>App 개발 이력</em></h2><hr id="22dd222a-04d6-81c5-8346-d58ff304b1c0"/><ul id="22dd222a-04d6-8184-880e-d0f9ffe3bfb8" class="bulleted-list"><li style="list-style-type:disc">Weekly Todo Planner<ul id="22dd222a-04d6-8079-91a2-f30420d86fd2" class="bulleted-list"><li style="list-style-type:circle">개요<ul id="22dd222a-04d6-80f7-9eab-f6ce7a42bdb2" class="bulleted-list"><li style="list-style-type:square">모바일 개발 과정 스터디 겸 자기관리용 간단한 할일 관리 앱</li></ul><ul id="22dd222a-04d6-808d-8948-ed9af221eb72" class="bulleted-list"><li style="list-style-type:square">특징: 요일별 Todo 관리하여 해당 요일에 자동 생성</li></ul></li></ul><ul id="22dd222a-04d6-804c-94dc-f61d20704e90" class="bulleted-list"><li style="list-style-type:circle">iOS: <a href="https://apps.apple.com/kr/app/weekly-todo-planner/id6747965816">https://apps.apple.com/kr/app/weekly-todo-planner/id6747965816</a></li></ul><ul id="22dd222a-04d6-801d-8ded-df4bab169358" class="bulleted-list"><li style="list-style-type:circle">android<ul id="22dd222a-04d6-8050-9821-f0e09ee9c8d3" class="bulleted-list"><li style="list-style-type:square">Play Store 테스트 정책으로 인해 정식출시 지연</li></ul><ul id="22dd222a-04d6-80db-aa24-cc06b313a824" class="bulleted-list"><li style="list-style-type:square"><a href="https://drive.google.com/file/d/1X-TmGabFDeBs3MjNJ8T7pN2CuvxOmkae/view?usp=sharing">APK 다운로드</a></li></ul></li></ul></li></ul><p id="22dd222a-04d6-8182-96c6-f09c98f2ae57" class="">
+</p><div id="22dd222a-04d6-80af-92f6-c547fee26dfe" class="column-list"><div id="22dd222a-04d6-80f6-9274-d0ffa7db3c52" style="width:50%" class="column"><h2 id="22dd222a-04d6-81c9-a969-dd3160c8b750" class="block-color-blue_background"><em>Certificate</em></h2><hr id="22dd222a-04d6-8132-98af-eb6013b13426"/><div id="22dd222a-04d6-81f3-bfe1-d198019095d2" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>자격증명</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>취득일</th><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>주관</th></tr></thead><tbody><tr id="22dd222a-04d6-815f-95f4-e3bf5ffb0fc3"><td class="cell-title"><a href="https://www.notion.so/22dd222a04d6815f95f4e3bf5ffb0fc3?pvs=21">정보처리기사</a></td><td class="cell-:]&lt;s"><time>@2011/09/05</time></td><td class="cell-RudL">한국산업인력공단</td></tr><tr id="22dd222a-04d6-8171-b9d0-e469b70aa08b"><td class="cell-title"><a href="https://www.notion.so/2-22dd222a04d68171b9d0e469b70aa08b?pvs=21">2종보통운전면허</a></td><td class="cell-:]&lt;s"></td><td class="cell-RudL"></td></tr></tbody></table><br/><br/></div></div><div id="22dd222a-04d6-8070-a487-defd63b50b32" style="width:50%" class="column"><h2 id="22dd222a-04d6-81a2-82bd-e540bacc34aa" class="block-color-blue_background"><em>Skills</em></h2><hr id="22dd222a-04d6-8127-80aa-df5b81b91fdb"/><ul id="22dd222a-04d6-81a2-8ba5-dd0930539db4" class="bulleted-list"><li style="list-style-type:disc">Flutter (Dart)</li></ul><ul id="22dd222a-04d6-8193-b8ac-cb31ceeba5f3" class="bulleted-list"><li style="list-style-type:disc">Node.js 기반<ul id="22dd222a-04d6-8057-ad2c-d82e579c6da3" class="bulleted-list"><li style="list-style-type:circle">Nest.js</li></ul><ul id="22dd222a-04d6-80ec-9243-e3687274139c" class="bulleted-list"><li style="list-style-type:circle">Next.js</li></ul></li></ul><ul id="22dd222a-04d6-80a8-b10d-db3c7dddea79" class="bulleted-list"><li style="list-style-type:disc">SQL &amp; Database<ul id="22dd222a-04d6-80a5-a7c7-d344da35b0ba" class="bulleted-list"><li style="list-style-type:circle">postgresql, mysql, oracle 등등</li></ul></li></ul><ul id="22dd222a-04d6-80da-a0c2-dd591e053911" class="bulleted-list"><li style="list-style-type:disc">Python</li></ul><p id="22dd222a-04d6-80b3-83f8-c007fea1c68e" class="">
+</p></div></div><p id="22dd222a-04d6-818f-9c1b-d2abdc544a21" class="">
+</p><h2 id="22dd222a-04d6-819e-a6de-d1da56b24679" class="block-color-blue_background"><em>Education</em></h2><hr id="22dd222a-04d6-8135-b8a5-f1a142852313"/><h3 id="22dd222a-04d6-8171-9cc7-d20d61317ed1" class="">[ 인프런 Flutter 강의 완강 ]</h3><p id="22dd222a-04d6-802e-8933-fe697d2ee46b" class=""><mark class="highlight-default"><a href="https://www.inflearn.com/course/%ED%94%8C%EB%9F%AC%ED%84%B0-%EC%B4%88%EC%9E%85%EB%AC%B8-%EC%99%95%EC%B4%88%EB%B3%B4">Flutter 초입문 왕초보편</a></mark></p><p id="22dd222a-04d6-80a1-a5bd-c3a337e39b97" class=""><a href="https://www.inflearn.com/course/flutter-%EC%9E%85%EB%AC%B8">Flutter 입문 - 안드로이드, iOS 개발을 한 번에 (with Firebase)</a></p><p id="22dd222a-04d6-803b-a777-f9d949b1422e" class=""><a href="https://www.inflearn.com/course/flutter_%EC%A4%91%EA%B8%89">Flutter 초급 - Http통신, 상태관리</a></p><p id="22dd222a-04d6-808b-b097-cba5545d7558" class=""><a href="https://www.notion.so/Flutter-22dd222a04d68036af2efc414d22d6d3?pvs=21">Flutter 응용 - 공공 API를 활용한 앱 만들기 (MVVM 패턴)</a></p><p id="22dd222a-04d6-8002-acd7-e99faa3c75e6" class="">
+</p><h3 id="22dd222a-04d6-80c6-868a-f9686ce0524d" class="">[ 그 외 인프런 강의 완강 ]</h3><p id="22dd222a-04d6-8084-be83-ed682d330781" class=""><a href="https://www.inflearn.com/course/%EB%94%B0%EB%9D%BC%ED%95%98%EB%8A%94-%EB%84%A4%EC%8A%A4%ED%8A%B8-%EC%A0%9C%EC%9D%B4%EC%97%90%EC%8A%A4/dashboard">따라하며 배우는 NestJS</a></p><p id="22dd222a-04d6-8048-8589-dfb6fb8da11b" class=""><a href="https://www.inflearn.com/course/%ED%95%9C%EC%9E%85-%ED%81%AC%EA%B8%B0-nextjs/dashboard">한 입 크기로 잘라먹는 Next.js(v15)</a></p><p id="22dd222a-04d6-81ba-b0ed-c148ebde86d6" class="">
+</p><h2 id="22dd222a-04d6-8048-9b69-e523d452a468" class="block-color-blue_background"><em>History (참고용)</em></h2><hr id="22dd222a-04d6-8043-9542-fb68ca85c2b7"/><ul id="22dd222a-04d6-8062-91cc-ed2d317ef46e" class="toggle"><li><details><summary>자바 개발자로 회사 근무, 총 근무년수 7년</summary><ul id="22dd222a-04d6-80a1-8108-f112b70694b7" class="bulleted-list"><li style="list-style-type:disc">펜타웍스<ul id="22dd222a-04d6-8035-8b0d-d71a397fcc31" class="bulleted-list"><li style="list-style-type:circle">근무기간: 2023.11 ~ 2025.04</li></ul><ul id="22dd222a-04d6-80bf-a206-c6cb25fe9335" class="bulleted-list"><li style="list-style-type:circle">참여 프로젝트<ul id="22dd222a-04d6-8009-9409-ea05af23c027" class="bulleted-list"><li style="list-style-type:square">Business Trip 관리 페이지 백엔드 개발<ul id="22dd222a-04d6-80a3-9c19-e5268373bc45" class="bulleted-list"><li style="list-style-type:disc">고객사: Seegene</li></ul><ul id="22dd222a-04d6-8055-b357-cb55eeed82c4" class="bulleted-list"><li style="list-style-type:disc">기술: Spring Boot, postgresql, Azure Cloud</li></ul></li></ul><ul id="22dd222a-04d6-803f-8347-c1dbbb2d7d71" class="bulleted-list"><li style="list-style-type:square">CJ 모바일 상품권 시스템 개발<ul id="22dd222a-04d6-8055-ae8b-e891aa96e6f8" class="bulleted-list"><li style="list-style-type:disc">고객사: 쿠프마케팅, CJ올리브네트웍스</li></ul><ul id="22dd222a-04d6-802c-babb-e481ca5a9b50" class="bulleted-list"><li style="list-style-type:disc">기술: Spring Boot, mysql, thymeleaf<br/>(기타 서버 및 인프라 spec은 확인불가)<br/></li></ul></li></ul><ul id="22dd222a-04d6-8046-b5d4-eacf4ef538b2" class="bulleted-list"><li style="list-style-type:square">스마트매니징 백엔드 개발<ul id="22dd222a-04d6-8053-9e94-cd2a710a94b3" class="bulleted-list"><li style="list-style-type:disc">고객사: HDC랩스</li></ul><ul id="22dd222a-04d6-80e7-93ca-eab9d701bb85" class="bulleted-list"><li style="list-style-type:disc">기술: Spring Boot, mysql, AWS, docker(ECS)</li></ul></li></ul></li></ul></li></ul><ul id="22dd222a-04d6-8023-b314-fd60b148dfcf" class="bulleted-list"><li style="list-style-type:disc">세윤씨앤에스<ul id="22dd222a-04d6-80fd-95bb-dfd499265701" class="bulleted-list"><li style="list-style-type:circle">근무기간: 2020.01 ~ 2022.07</li></ul><ul id="22dd222a-04d6-80f4-8cc9-f10687f1751c" class="bulleted-list"><li style="list-style-type:circle">참여 프로젝트<ul id="22dd222a-04d6-8021-8427-dfd6663bc052" class="bulleted-list"><li style="list-style-type:square"><del>통합 EHS 관리 웹 사이트 개발 (망한 프로젝트)</del><ul id="22dd222a-04d6-8008-b5ec-fcd61b1b59c3" class="bulleted-list"><li style="list-style-type:disc">고객사: 인천국제공항공사</li></ul><ul id="22dd222a-04d6-8060-94c6-e9c2ddd66fd5" class="bulleted-list"><li style="list-style-type:disc">기술: Spring 4.x, oracle db, JSP, jQuery</li></ul></li></ul><ul id="22dd222a-04d6-80eb-985d-e5f6828c4070" class="bulleted-list"><li style="list-style-type:square">Power BI 연계 회계관리 시스템 개발<ul id="22dd222a-04d6-80aa-8d24-e5b071a8a289" class="bulleted-list"><li style="list-style-type:disc">내부 영업용 데모 프로젝트</li></ul><ul id="22dd222a-04d6-80d2-8df4-dbb483f39daa" class="bulleted-list"><li style="list-style-type:disc">기술: Spring 4.x, oracle db, JSP, jQuery, MS Power BI API 호출</li></ul></li></ul><ul id="22dd222a-04d6-801d-af63-cb3647b81bf5" class="bulleted-list"><li style="list-style-type:square">KCC 웹 통합시스템 중 전표관리 파트 개발<ul id="22dd222a-04d6-8088-a08a-fd7c60dee221" class="bulleted-list"><li style="list-style-type:disc">고객사: (주)코리아오토글라스</li></ul><ul id="22dd222a-04d6-804a-814b-d63d3548f0bf" class="bulleted-list"><li style="list-style-type:disc">기술: Spring 4.x, oracle db, Websquare</li></ul></li></ul></li></ul></li></ul><ul id="22dd222a-04d6-8054-ba4a-c58bc6769394" class="bulleted-list"><li style="list-style-type:disc">더화이트커뮤니케이션<ul id="22dd222a-04d6-80a0-9101-f3463f61c489" class="bulleted-list"><li style="list-style-type:circle">근무기간: 2018.07 ~ 2019.08</li></ul><ul id="22dd222a-04d6-8018-87d1-ccdef0bc3789" class="bulleted-list"><li style="list-style-type:circle">주요 업무<ul id="22dd222a-04d6-800d-b80d-c620400d8534" class="bulleted-list"><li style="list-style-type:square">챗봇 연계 및 고객센터용 채팅 서비스 개발 참여</li></ul><ul id="22dd222a-04d6-8038-a159-c187d60bc686" class="bulleted-list"><li style="list-style-type:square">MMS 에이전트 및 통신 서비스 프로그램 관리</li></ul></li></ul></li></ul><ul id="22dd222a-04d6-8072-b0b4-d9181416a27e" class="bulleted-list"><li style="list-style-type:disc">그 외 소규모 파견업체 다수 근무</li></ul></details></li></ul><p id="22dd222a-04d6-80e4-b76a-f15f6d58f3d4" class="">
+</p><figure class="block-color-default callout" style="white-space:pre-wrap;display:flex" id="22dd222a-04d6-8154-babe-feba10faebc2"><div style="font-size:1.5em"><span class="icon">❤️</span></div><div style="width:100%"><em>Thank you for your time!</em></div></figure><p id="22dd222a-04d6-8160-b70e-c6f3aef4909b" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
